@@ -1,2 +1,2 @@
 # group28
-WEB Course
+yarden hendri & adi fridman ,ירדן הנדרי & עדי פרידמן
