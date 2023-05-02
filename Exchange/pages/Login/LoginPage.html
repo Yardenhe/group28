@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+        <!--bootstrap cdn,design-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <!--font awesome Icon cdn,design-->
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+        <!--custom css-->
+        <link rel="stylesheet" type="text/css" href="../../Static/styles.css" /> 
+</head>
+<body>
+<!--navigation bar-->
+      
+<nav class="navbar navbar-expand-md navbar-dark bg-light">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <img src="../../images/logo3.png" width="70" height="70" class="d-inline-block align-top" alt="logo3.png">
+            <div class="navbar-nav">
+                
+                <a class="btn btn-toolbar" href="../Homepage/HomePage.html">Home <span class="sr-only">(current)</span></a>
+                <a class="btn btn-toolbar" href="../About/AboutPage.html">About</a>
+                <a class="btn btn-toolbar" href="../Offers/OffersPage.html">Search Change</a>
+                <a class="btn btn-toolbar" href="../Calculator/CalculatorPage.html">Calculator</a>
+                <a class="btn btn-toolbar" href="../MyProfile/MyProfilePage.html">My Profile</a>
+                <a class="btn btn-toolbar" href="../MyHistory/MyHistoryPage.html">My History</a>
+            </div>
+        </div>
+            <div class="right-toolbar">
+                <a class="btn btn-primary" href="../Register/RegisterPage.html">Sign Up</a>
+                <a class="btn btn-primary" href="../Login/LoginPage.html">Sign In</a>
+            </div>
+    </div>
+</nav>
+
+<!--end navigation bar-->
+
+    <main class="main-container">
+     
+        <!--LoginCard,first section-->
+
+    <section class="LoginCard">
+        <div >
+            <h1>welcome!</h1>
+            <h5>Enter your email and password to sign in</h2>
+        </div>
+        <div class="login-form">
+        <form method="POST" enctype="multipart/form-data" action=”/todo”>
+            `
+                            <div class="login-form">
+                                <div class="textbox">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <input type="text" placeholder="Username" name="username" value="">
+                                </div>
+                                <br>
+                                </br>
+                                <div class="textbox">
+                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                    <input type="password" placeholder="Password" name="password" value="">
+                                </div>
+                                <br>
+                                </br>
+                                <div class="signupbtn">
+                                    <a href="/Web-Project-g18/Pages/PrivateZone/Tamplates/private_zone.html" >Sign in</a>
+                                </div>
+            
+                                <a href ="../Register/RegisterPage.html"  class="register"> New Member? Register Now!</a>
+            
+                            </div>
+                        </form>
+                    </div>
+     </section>
+    
+        <!--end LoginCard-->
+        
+    </main>
+
+
+    <footer>
+        <div class="text-center footer">
+            <p>© 2023, changemoneywithfriends.com | By Yarden&Adi ltd</p>
+        </div>
+    </footer>
+
+    <!--end footer-->
+</body>
+</html>
