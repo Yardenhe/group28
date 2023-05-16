@@ -1,7 +1,7 @@
 
 /* homepage-style */
 .header{
-    background-image: url(../images/homepage4.PNG);
+    background-image: url(../homepage4.PNG);
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;
@@ -139,7 +139,7 @@
     border-bottom:5px solid #4A4C67;
 }
 .AddChange{
-    background-image: url(../images/homepage5.PNG);
+    background-image: url(../homepage5.PNG);
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;
@@ -188,7 +188,7 @@
 
 .main-container{
 
-    background-image: url(../images/LoginPic.PNG);
+    background-image: url(../LoginPic.PNG);
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;
