@@ -12,7 +12,7 @@
 }
 .right-toolbar
 {
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .content text-center{
     align-content:center;
@@ -273,6 +273,9 @@
     margin-left: auto;
     margin-right: auto;
   }
+  .error {
+    color: red;
+  }
   /*  End Login-style */
 
   /*  Register-style */
@@ -353,7 +356,9 @@
     align-items: center;
     align-content: center;
     padding: 20px;
+    
 }
+
 
 .offerCard{
     background-color: #fff;
@@ -373,13 +378,21 @@
 .LoginCard div{
     flex:1
 }
-
+.textbox{
+  margin-left: 4px;
+}
+.offerCard p{
+  text-align: center;
+  color: #999;
+  font-size: 30px;
+  margin-top: 20px;
+}
 
 .serch-button {
   
     background:rgb(255, 255, 255);
     border: 2px solid;
-    margin: auto;
+    margin-right: 4px;
     color:rgb(0, 0, 0);
     padding: 5px;
     font-size: 20px;

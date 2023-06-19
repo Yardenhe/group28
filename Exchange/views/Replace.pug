@@ -1,0 +1,31 @@
+doctype html
+include includes/head.pug
+// navigation bar
+nav.navbar.navbar-expand-md.navbar-dark.bg-light
+  .container
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarNavAltMarkup.collapse.navbar-collapse
+      img.d-inline-block.align-top(src='../../logo3.png' width='70' height='70' alt='logo3.png')
+      .navbar-nav
+        a.btn.btn-toolbar(href='../Homepage/HomePage.html')
+          | Home 
+          span.sr-only (current)
+        a.btn.btn-toolbar(href='../About/AboutPage.html') About
+        a.btn.btn-toolbar(href='../Offers/OffersPage.html') Search Change
+        a.btn.btn-toolbar(href='../Calculator/CalculatorPage.html') Calculator
+        a.btn.btn-toolbar(href='../MyProfile/MyProfilePage.html') My Profile
+        a.btn.btn-toolbar(href='../MyHistory/MyHistoryPage.html') My History
+    .right-toolbar
+      a.btn.btn-primary(href='../Register/RegisterPage.html') Sign Up
+      a.btn.btn-primary(href='../Login/LoginPage.html') Sign In
+// end navigation bar
+main
+  // header,first section
+  section.header
+    .content.text-center
+      h1 Replace page
+      h3 Change cash or bank transfer with people around the wrold without paying fee
+      a.head_content(href='') join us
+  // end header
+include includes/footer.pug

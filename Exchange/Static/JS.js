@@ -1,6 +1,6 @@
 //Register Validation//---------------------------------------------------
 
-const form = document.querySelector("#Register-Form");
+const form = document.getElementById("signUp");
 const nameInput = document.querySelector("#first_name");
 const lastnameInput = document.querySelector("#last_name");
 const phoneInput = document.querySelector("#phone_number");
@@ -47,8 +47,11 @@ if (form)
     // Validate birthday
     if (!birthdateInput.value) {
       alert("Please enter a birthdate.");
-    } else if (new Date(birthdateInput.value) > new Date()) {
+      return;
+    }
+    if (new Date(birthdateInput.value) > new Date()) {
       alert("Birthdate cannot be in the future.");
+      return;
     }
 
     // Validate username input field
@@ -84,10 +87,11 @@ if (form)
       confirmPasswordInput.focus();
       return;
     }
+    form.submit();
   });
 
 // If all validations pass, submit the form
-if (signupbtn) signupbtn.addEventListener("click", function () {});
+//if (signupbtn) signupbtn.addEventListener("click", function () {});
 
 //End Register Validation//---------------------------------------
 //offer Add post//--------------------------------------------------
@@ -104,68 +108,6 @@ if (closeBtn)
   closeBtn.addEventListener("click", function () {
     Addmodal.style.display = "none";
   });
-let objects = [
-  {
-    Date: "2023-04-30",
-    Address: "123 Main Street",
-    FROM: "USD",
-    TO: "EUR",
-    Amount: 100.0,
-    Status: "Paid",
-  },
-  {
-    Date: "2023-04-29",
-    Address: "456 Elm Street",
-    FROM: "CAD",
-    TO: "EUR",
-    Amount: 250.0,
-    Status: "Unpaid",
-  },
-  {
-    Date: "2023-04-28",
-    Address: "789 Maple Ave",
-    FROM: "CAD",
-    TO: "USD",
-    Amount: 500.0,
-    Status: "Pending",
-  },
-];
-
-function MakeTabelefromObject(objects) {
-  let table = document.createElement("table");
-  let headerRow = document.createElement("tr");
-
-  let headerCells = Object.keys(objects[0]).map((key) => {
-    let headerCell = document.createElement("th");
-    headerCell.textContent = key;
-    return headerCell;
-  });
-
-  headerCells.forEach((headerCell) => {
-    headerRow.appendChild(headerCell);
-  });
-
-  table.appendChild(headerRow);
-
-  objects.forEach((object) => {
-    let row = document.createElement("tr");
-
-    Object.values(object).forEach((value) => {
-      let cell = document.createElement("td");
-      cell.textContent = value;
-      row.appendChild(cell);
-    });
-
-    table.appendChild(row);
-  });
-  return table;
-}
-//offers tabele
-let tableoffers = document.getElementById("table-offers");
-if (tableoffers) tableoffers.appendChild(MakeTabelefromObject(objects));
-//my history tabele tamporery
-let tablemyhistory = document.getElementById("tablemyhistory");
-if (tablemyhistory) tablemyhistory.appendChild(MakeTabelefromObject(objects));
 
 //End offer Add post//-----------------------------------------------
 
@@ -318,3 +260,15 @@ calculateBtn.addEventListener("click", function () {
 });
 
 //Exchange calculator  end------------------------------------------------------------------
+//homepage welcome
+
+var Greeting = document.getElementsByName("Greeting");
+Greeting.innerHTML = "hello";
+// function checkcookie() {
+//   if (document.cookie != " ") {
+//     //console.log(document.cookie);
+//     Greeting.innerHTML = "hello";
+//   }
+// }
+// checkcookie();
+//end hompepage

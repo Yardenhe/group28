@@ -1,0 +1,48 @@
+doctype html
+include includes/head.pug
+  // custom js
+  script(defer='' src='../../JS.js')
+include includes/nav.pug
+main.main-container-offer
+  // LoginCard,first section
+  section.Calculatorcard
+    div
+      h5 Select the amount and currency you want to convert:
+    form.search-form(method='POST' enctype='multipart/form-data' action='”/todo”')
+      .row
+        div
+          button#calculateButton.serch-button(type='button') calculate
+        br
+        .textbox
+          select#currencyFrom
+            option(value='none' disabled='' selected='') Select From currency
+            option(value='USD') USD - United States Dollar
+            option(value='EUR') EUR - Euro
+            option(value='GBP') GBP - British Pound Sterling
+            option(value='JPY') JPY - Japanese Yen
+            option(value='CAD') CAD - Canadian Dollar
+            option(value='AUD') AUD - Australian Dollar
+            option(value='CHF') CHF - Swiss Franc
+            option(value='ILS') ILS-  Israeli Shekel
+        br
+        .textbox
+          select#currencyTO
+            option(value='none' disabled='' selected='') Select To currency
+            option(value='USD') USD - United States Dollar
+            option(value='EUR') EUR - Euro
+            option(value='GBP') GBP - British Pound Sterling
+            option(value='JPY') JPY - Japanese Yen
+            option(value='CAD') CAD - Canadian Dollar
+            option(value='AUD') AUD - Australian Dollar
+            option(value='CHF') CHF - Swiss Franc
+            option(value='ILS') ILS-  Israeli Shekel
+        br
+        div
+          input#AmountCalcuator(type='number' min='0' placeholder='Amount' value='')
+  // end LoginCard
+  section.LoginCard
+    .text-center
+      h2#fromvalue
+      h2 =
+      h2#TOvalue
+include includes/footer.pug

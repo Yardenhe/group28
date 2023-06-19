@@ -1,0 +1,104 @@
+doctype html
+include includes/head.pug
+  // custom js
+  script(defer='' src='../../JS.js')
+include includes/nav.pug
+main.main-container-offer
+  // LoginCard, first section
+  section.offerCard
+    div
+      h5  Which currency would you like to exchange?
+    form.search-form(method='POST' action='/search')
+      .row
+        button(type='submit' class='search-button') Search
+        div
+          input(type='number' placeholder='Amount' name='amount' value='')
+        br
+        .textbox
+          select#currency-from(name='fromCurrency')
+             option(value='' disabled='' selected='' ) Select Currency
+             each currency in currencies
+               option(value=currency.currency_id)= currency.currency_display
+        br
+        .textbox
+          select#currency-to(name='toCurrency')
+             option(value='' disabled='' selected='') Select Currency
+             each currency in currencies
+               option(value=currency.currency_id)= currency.currency_display
+        br
+        .textbox
+         select#city(name='city')
+            option(value='' disabled='' selected='') Select city 
+             each city in cities
+               option(value=city)= city
+        br
+  // end LoginCard
+  // Offer Section, second section
+  section.offerCard
+    .wraph1
+      button#modalbtnAdd
+        i.fa.fa-plus(aria-hidden='true')
+        | Post trade
+    if transactions.length === 0
+       p No results
+    else  
+      table
+        thead
+          tr
+            th Date
+            th City
+            th Address
+            th From Currency
+            th To Currency
+            th Amount
+            th From User Name
+        tbody
+          each transaction in transactions
+             tr
+              td= transaction.date.toLocaleDateString()
+              td= transaction.city
+              td= transaction.address
+              td= transaction.from_currency_code
+              td= transaction.to_currency_code
+              td= transaction.amount
+              td= transaction.full_name
+                    
+       
+  // end Offer Section
+  // approve Section, third section
+  section
+    #Addmodal.modal
+      .modal-content
+        h3 Add trade
+        form(method='POST' action='”/AddTransaction”')
+          | &grave;
+          .login-form
+            br
+            div
+              input(type='number' placeholder='Amount' name='amount' value='')
+            br
+            .textbox
+              select#currency-from(name='fromCurrency')
+                option(value='' disabled='' selected='' ) Select Currency
+                each currency in currencies
+                  option(value=currency.currency_id)= currency.currency_display
+            br
+            .textbox
+              select#currency-to(name='toCurrency')
+                option(value='' disabled='' selected='') Select Currency
+                each currency in currencies
+                  option(value=currency.currency_id)= currency.currency_display
+            br
+            .textbox
+            select#city(name='city')
+                option(value='' disabled='' selected='') Select city 
+                each city in cities
+                  option(value=city)= city
+            br
+             input(type='text' placeholder='Address' name='Address' value='')
+            br
+        button Add trade
+        button#close-btn Close
+  // end approve Section,thierd section
+
+include includes/footer.pug

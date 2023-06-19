@@ -1,0 +1,33 @@
+doctype html
+include includes/head.pug
+include includes/nav.pug
+main.main-container
+  // LoginCard,first section
+  section.LoginCard
+    div
+      h1 welcome!
+      h5
+        | Enter your email and password to sign in
+    if error
+      p.error= error    
+    .login-form
+      form#signin(method='POST' action='/signIn')
+        | &grave;
+        .login-form
+          .textbox
+            i.fa.fa-user(aria-hidden='true')
+            input(type='text' placeholder='Username' name='username' value='')
+          br
+          br
+          .textbox
+            i.fa.fa-lock(aria-hidden='true')
+            input(type='password' placeholder='Password' name='password' value='')
+          br
+          br
+          input.signupbtn(type='submit' value='Sign in')
+          br
+          br
+          a.register(href='/RegisterPage')  New Member? Register Now!
+  
+  // end LoginCard
+include includes/footer.pug

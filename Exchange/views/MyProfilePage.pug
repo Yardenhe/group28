@@ -1,0 +1,34 @@
+doctype html
+include includes/head.pug
+include includes/nav.pug
+main
+  // header,first section
+  section.header-my-profile
+    div
+      h2
+        | My Profile
+  section.my-profile-card
+    .left-side
+      i.fa.fa-2x.fa-user-circle(aria-hidden='true')
+      h2
+        | Yarden Hendri
+    .middle-side
+      h2
+        | contant info
+        p  yardenhendri1@gmail.com 
+        p  +972527021440
+        h2 Address
+        p  &#x5E8;&#x5D2;&#x5E8; 144 &#x5D1;&#x5D0;&#x5E8; &#x5E9;&#x5D1;&#x5E2; , &#x5D9;&#x5E9;&#x5E8;&#x5D0;&#x5DC; 
+        h2 payemet methode
+        p  Mastercard **** **** **** 8056
+        h2 Exchange Times
+        p  7
+        h2 sum exchanges
+        p  7000$
+        h2 moeny saving (according bank of america fee)
+        p  50$
+    .right-side
+      .Edit-button
+        a(href='/customers') Edit
+  // end header
+include includes/footer.pug

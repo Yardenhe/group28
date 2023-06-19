@@ -1,0 +1,26 @@
+// navigation bar
+nav.navbar.navbar-expand-md.navbar-dark.bg-light
+  .container
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarNavAltMarkup.collapse.navbar-collapse
+      img.d-inline-block.align-top(src='../../logo3.png' width='70' height='70' alt='logo3.png')
+      .navbar-nav
+        a.btn.btn-toolbar(href='/')
+          | Home 
+          span.sr-only (current)
+        a.btn.btn-toolbar(href='/AboutPage') About
+        a.btn.btn-toolbar(href='/OffersPage') Search Change
+        a.btn.btn-toolbar(href='/CalculatorPage') Calculator
+        if username
+           a.btn.btn-toolbar(href='/MyProfilePage') My Profile
+           a.btn.btn-toolbar(href='/MyHistoryPage') My History
+    .right-toolbar
+   
+    if username
+      p Welcome, #{username}!
+       a.btn.btn-primary(href='/logout') Logout 
+    else
+      a.btn.btn-primary(href='/RegisterPage') Sign Up
+      a.btn.btn-primary(href='/LoginPage') Sign In
+// end navigation bar
