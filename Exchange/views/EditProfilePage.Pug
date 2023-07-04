@@ -1,0 +1,42 @@
+doctype html
+include includes/head.pug
+  // custom js
+  script(defer='' src='../../JS.js')
+include includes/nav.pug
+main.main-container
+  // LoginCard,first section
+  section.LoginCard
+    div
+      h1 Edit Your Profile!
+      h5
+        | Enter the field
+    .login-form
+      form#signUp(method='POST' action='/EditUser')
+        .login-form
+          .textbox
+            input#first_name(type='text' placeholder='First Name' name='first_name' value=user.name)
+          br
+          .textbox
+            input#last_name(type='text' placeholder='Last Name' name='last_name' value=user.last_name)
+          br
+          .textbox
+            input#phone_number(type='text' placeholder='Phone Number' name='phone_number' value=user.phone_number)
+          br
+          .textbox
+            input#email(type='text' placeholder='Email' name='email' value=user.email)
+          br
+          .textbox
+            input#birth_date(type='date' name='birth_date' value=user.birthdate)
+          br
+          .textbox
+            input#username(type='text' placeholder='Username' name='username' value=user.username)
+          br
+          .textbox
+            input#password(type='password' placeholder='Password' name='password' value='')
+          br
+          .textbox
+            input#confirm-password(type='password' placeholder='confirm-password' name='confirm-password' value='')
+          br
+        input.signupbtn(type='submit' value='Edit')
+  // end LoginCard
+include includes/footer.pug

@@ -15,7 +15,7 @@ const createTabels = (req, res) => {
     const queries = data.split(";").filter((query) => query.trim() !== "");
 
     executeQueries(queries).then(() => {
-      console.log("Tables created successfully.");
+      res.send("Tables created successfully.");
     });
   });
 };
@@ -126,31 +126,70 @@ const createDATA = (req, res) => {
   });
   res.redirect("/");
 };
-const DropTabels = (req, res) => {
-  const query = "SHOW TABLES";
+//const DropTabels = (req, res) => {
+const query = "SHOW TABLES";
 
-  SQL.query(query, (err, results) => {
+SQL.query(query, (err, results) => {
+  if (err) {
+    console.error("Error fetching table names:", err);
+    res.status(500).send("Error fetching table names");
+    return;
+  }
+
+  const tableNames = results.map(
+    (result) => result[`Tables_in_${SQL.config.database}`]
+  );
+
+  const dropQueries = tableNames.map(
+    (tableName) => `DROP TABLE IF EXISTS ${tableName}`
+  );
+
+  executeQueries(dropQueries)
+    .then(() => {
+      res.send("All tables dropped successfully.");
+    })
+    .catch((error) => {
+      console.error("Error dropping tables:", error);
+      res.status(500).send("dropping tables");
+    });
+});
+//};
+const DropTabels = (req, res) => {
+  const dropForeignKeyQuery = "SET FOREIGN_KEY_CHECKS = 0";
+
+  SQL.query(dropForeignKeyQuery, (err) => {
     if (err) {
-      console.error("Error fetching table names:", err);
-      res.status(500).send("Error fetching table names");
+      console.error("Error disabling foreign key checks:", err);
+      res.status(500).send("Error disabling foreign key checks");
       return;
     }
 
-    const tableNames = results.map(
-      (result) => result[`Tables_in_${SQL.config.database}`]
-    );
-    const dropQueries = tableNames.map(
-      (tableName) => `DROP TABLE IF EXISTS ${tableName}`
-    );
+    const queryTables = "SHOW TABLES";
 
-    executeQueries(dropQueries)
-      .then(() => {
-        res.send("All tables dropped successfully.");
-      })
-      .catch((error) => {
-        console.error("Error dropping tables:", error);
-        res.status(500).send("dropping tables");
-      });
+    SQL.query(queryTables, (err, results) => {
+      if (err) {
+        console.error("Error fetching table names:", err);
+        res.status(500).send("Error fetching table names");
+        return;
+      }
+
+      const tableNames = results.map(
+        (result) => result[`Tables_in_${SQL.config.database}`]
+      );
+
+      const dropQueries = tableNames.map(
+        (tableName) => `DROP TABLE IF EXISTS ${tableName}`
+      );
+
+      executeQueries(dropQueries)
+        .then(() => {
+          res.send("All tables dropped successfully.");
+        })
+        .catch((error) => {
+          console.error("Error dropping tables:", error);
+          res.status(500).send("Dropping tables");
+        });
+    });
   });
 };
 

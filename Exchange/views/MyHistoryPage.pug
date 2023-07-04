@@ -11,7 +11,24 @@ main
         | My History
   // end myhistort tabele,seacond section
   section.offerCard
-    #tablemyhistory
+    table
+      thead
+        tr
+          th Date
+          th City
+          th Address
+          th From Currency
+          th To Currency
+          th Amount
+      tbody
+        each transaction in transactions
+          tr
+            td= transaction.date.toLocaleDateString()
+            td= transaction.city
+            td= transaction.address
+            td= transaction.from_currency_code
+            td= transaction.to_currency_code
+            td= transaction.amount
   // end myhistort tabele
   // end header
 include includes/footer.pug

@@ -2,33 +2,30 @@ doctype html
 include includes/head.pug
 include includes/nav.pug
 main
-  // header,first section
-  section.header-my-profile
-    div
-      h2
-        | My Profile
-  section.my-profile-card
-    .left-side
-      i.fa.fa-2x.fa-user-circle(aria-hidden='true')
-      h2
-        | Yarden Hendri
-    .middle-side
-      h2
-        | contant info
-        p  yardenhendri1@gmail.com 
-        p  +972527021440
-        h2 Address
-        p  &#x5E8;&#x5D2;&#x5E8; 144 &#x5D1;&#x5D0;&#x5E8; &#x5E9;&#x5D1;&#x5E2; , &#x5D9;&#x5E9;&#x5E8;&#x5D0;&#x5DC; 
-        h2 payemet methode
-        p  Mastercard **** **** **** 8056
-        h2 Exchange Times
-        p  7
-        h2 sum exchanges
-        p  7000$
-        h2 moeny saving (according bank of america fee)
-        p  50$
-    .right-side
-      .Edit-button
-        a(href='/customers') Edit
-  // end header
+  // header, first section
+section.header-my-profile
+  div
+    h2 My Profile
+section.my-profile-card
+  .left-side
+    i.fa.fa-2x.fa-user-circle(aria-hidden='true')
+    h2 #{user.name} #{user.last_name}
+  .middle-side
+    h2 Contact Info
+    h3 email 
+    p #{user.email}
+    h3 phone number
+    p #{user.phone_number}
+    h3 birthdate
+    p #{user.birthdate.toLocaleDateString()}
+    //- h2 Exchange Times
+    //- p #{user.exchange_times}
+    //- h2 Sum Exchanges
+    //- p #{user.sum_exchanges}
+    //- h2 Money Saving (according to Bank of America fee)
+    //- p #{user.money_saving}
+  .right-side
+    .Edit-button
+      a(href='/EditProfilePage') Edit
+// end header
 include includes/footer.pug

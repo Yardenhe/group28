@@ -268,6 +268,19 @@
   text-align: center;
   width: 100px;
   }
+  .Addpostbtn {
+    width: 100%;  
+    background:rgb(255, 255, 255);
+    border: 2px solid;
+    margin: auto;
+    color:rgb(0, 0, 0);
+    padding: 5px;
+    font-size: 20px;
+    cursor: pointer;
+  text-align: center;
+  align-self: center;
+ 
+  }
   form{
     display: inline-block;
     margin-left: auto;
@@ -387,7 +400,13 @@
   font-size: 30px;
   margin-top: 20px;
 }
+.offerd-input{
+  height: 50px;
+  width: 500px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 
+}
 .serch-button {
   
     background:rgb(255, 255, 255);
@@ -406,7 +425,7 @@
     margin: 10px;
   }
   .row input {
-
+   
     height: 50px;
     font-size: 20px;
   }
@@ -512,7 +531,7 @@
   }
   
   .modal-content h3 {
-    margin-top: 0;
+    text-align: center;
   }
   
   .modal-content button {

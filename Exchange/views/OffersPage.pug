@@ -36,6 +36,7 @@ main.main-container-offer
   // Offer Section, second section
   section.offerCard
     .wraph1
+     if username
       button#modalbtnAdd
         i.fa.fa-plus(aria-hidden='true')
         | Post trade
@@ -52,6 +53,7 @@ main.main-container-offer
             th To Currency
             th Amount
             th From User Name
+            th phone_number
         tbody
           each transaction in transactions
              tr
@@ -62,6 +64,8 @@ main.main-container-offer
               td= transaction.to_currency_code
               td= transaction.amount
               td= transaction.full_name
+              td= transaction.phone_number
+                
                     
        
   // end Offer Section
@@ -70,35 +74,55 @@ main.main-container-offer
     #Addmodal.modal
       .modal-content
         h3 Add trade
-        form(method='POST' action='”/AddTransaction”')
+        form(method='POST' action='/Addpost' id="Addpost")
           | &grave;
           .login-form
             br
             div
-              input(type='number' placeholder='Amount' name='amount' value='')
-            br
-            .textbox
-              select#currency-from(name='fromCurrency')
-                option(value='' disabled='' selected='' ) Select Currency
-                each currency in currencies
-                  option(value=currency.currency_id)= currency.currency_display
-            br
-            .textbox
-              select#currency-to(name='toCurrency')
-                option(value='' disabled='' selected='') Select Currency
-                each currency in currencies
-                  option(value=currency.currency_id)= currency.currency_display
-            br
-            .textbox
-            select#city(name='city')
-                option(value='' disabled='' selected='') Select city 
-                each city in cities
-                  option(value=city)= city
-            br
-             input(type='text' placeholder='Address' name='Address' value='')
-            br
-        button Add trade
-        button#close-btn Close
+              input.offerd-input(type='number' placeholder='Amount' name='amount' id ='amount' value='')
+              br
+              .textbox
+                select#currency-fromAdd(name='fromCurrency')
+                  option(value='' disabled='' selected='' ) Select Currency
+                  each currency in currencies
+                    option(value=currency.currency_id)= currency.currency_display
+              br
+              .textbox
+                select#currency-toAdd(name='toCurrency')
+                  option(value='' disabled='' selected='') Select Currency
+                  each currency in currencies
+                    option(value=currency.currency_id)= currency.currency_display
+              br
+              .textbox
+              select#cityAdd(name='city')
+                  option(value='' disabled='' selected='') Select city 
+                  each city in cities
+                    option(value=city)= city
+              br
+              input.offerd-input(type='text' placeholder='Address' name='Address' id ='Address' value='')
+          button.Addpostbtn(type='submit') Add Post
+          button#close-btn(type='button' class="Addpostbtn") Close
   // end approve Section,thierd section
+  // Detail Section, forth section
+  section
+    #Detailmodal.modal
+      .modal-content
+        h3 Detail
+        form(method='POST' action='/Addpost' id="Addpost")
+          | &grave;
+          .login-form
+            br
+            div
+             //td= transactions[0].from_currency_code
+             br
+             h2 Contact Info
+             h3 email 
+             //p #{user.email}
+             h3 phone number
+            // p #{user.phone_number}
+             
+          button.Addpostbtn(type='submit') Add Post
+          button#close-btnDetail(type='button' class="Addpostbtn") Close
+  // end Detail Section, forth section
 
 include includes/footer.pug

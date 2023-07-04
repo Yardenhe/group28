@@ -32,17 +32,16 @@ app.use((req, res, next) => {
   res.locals.error = null; // Initialize error as null
   next();
 });
-
-//route
+//--------------------------------------views routes----------------
+//route homepage
 app.get("/", (req, res) => {
   res.render("HomePage");
 });
-//route
+//route AboutPage
 app.get("/AboutPage", (req, res) => {
   res.render("AboutPage");
 });
-
-//route
+//route OffersPage
 app.get("/OffersPage", (req, res) => {
   CRUD.getAllTransactions((err, transactions) => {
     if (err) {
@@ -68,32 +67,29 @@ app.get("/OffersPage", (req, res) => {
     }
   });
 });
-//route
+//route CalculatorPage
 app.get("/CalculatorPage", (req, res) => {
   res.render("CalculatorPage");
 });
-//route
-app.get("/MyHistoryPage", (req, res) => {
-  res.render("MyHistoryPage");
-});
-//route
-app.get("/MyProfilePage", (req, res) => {
-  res.render("MyProfilePage");
-});
-//route
+//route MyHistoryPage
+app.get("/MyHistoryPage", CRUD.GetMyHistoryTransactions); // Pass the req object to the function
+//route MyProfilePage
+app.get("/MyProfilePage", CRUD.GetUserById);
+//route RegisterPage
 app.get("/RegisterPage", (req, res) => {
   res.render("RegisterPage");
 });
+//route EditProfilePage
+app.get("/EditProfilePage", CRUD.GetUserById);
 app.get("/LoginPage", (req, res) => {
   res.render("LoginPage");
 });
-
-app.listen(port, () => {
-  console.log(` app listening at http://localhost:${port}`);
-});
-
+//--------------------------------------functions routes----------------
 //new user
 app.post("/signUp", CRUD.createNewUser);
+
+//Edit user
+app.post("/EditUser", CRUD.EditUser);
 
 //route for getting all customers
 app.get("/customers", CRUD.GetAllCustomers);
@@ -104,11 +100,15 @@ app.post("/SignIn", CRUD.UserSignIn);
 // Logout route
 app.get("/logout", (req, res) => {
   res.clearCookie("username");
+  res.clearCookie("userID");
   res.redirect("/");
 });
 //serch route
 app.post("/search", CRUD.SearchTransactions);
 
+//Add post
+app.post("/Addpost", CRUD.addTransaction);
+//--------------------------------------database routes----------------
 //Generate DB
 //create tabels
 app.get("/CreatTables", DB_Crud.createTabels);
@@ -116,3 +116,7 @@ app.get("/CreatTables", DB_Crud.createTabels);
 app.get("/CreatData", DB_Crud.createDATA);
 //drop all tabels
 app.get("/dropalltables", DB_Crud.DropTabels);
+
+app.listen(port, () => {
+  console.log(` app listening at http://localhost:${port}`);
+});

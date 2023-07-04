@@ -90,9 +90,6 @@ if (form)
     form.submit();
   });
 
-// If all validations pass, submit the form
-//if (signupbtn) signupbtn.addEventListener("click", function () {});
-
 //End Register Validation//---------------------------------------
 //offer Add post//--------------------------------------------------
 const modalBtnAdd = document.getElementById("modalbtnAdd");
@@ -108,6 +105,55 @@ if (closeBtn)
   closeBtn.addEventListener("click", function () {
     Addmodal.style.display = "none";
   });
+const formAddpost = document.getElementById("Addpost");
+const amount = document.getElementById("amount");
+const fromCurrency = document.querySelector("#currency-fromAdd");
+const toCurrency = document.querySelector("#currency-toAdd");
+const city = document.querySelector("#cityAdd");
+const address = document.getElementById("Address");
+
+if (formAddpost) {
+  formAddpost.addEventListener("submit", (e) => {
+    console.log("Amount:", amount.value);
+    console.log("From Currency:", fromCurrency.value);
+    console.log("To Currency:", toCurrency.value);
+    console.log("City:", city.value);
+    console.log("Address:", address.value);
+    if (
+      amount.value.trim() === "" ||
+      fromCurrency.value.trim() === "" ||
+      toCurrency.value.trim() === "" ||
+      city.value.trim() === "" ||
+      address.value.trim() === ""
+    ) {
+      alert("Please fill in all the fields");
+      e.preventDefault();
+      return;
+    }
+
+    if (isNaN(parseFloat(amount.value)) || parseFloat(amount.value) <= 0) {
+      alert("Please enter a valid amount");
+      e.preventDefault();
+      return;
+    }
+
+    formAddpost.submit();
+  });
+}
+const modaluserbutton = document.getElementById("modaluserbutton");
+const AddmodalDetail = document.getElementById("Detailmodal");
+if (modaluserbutton)
+  modaluserbutton.addEventListener("click", function () {
+    AddmodalDetail.style.display = "block";
+  });
+const closeBtnDetail = document.getElementById("close-btnDetail");
+if (closeBtnDetail)
+  closeBtnDetail.addEventListener("click", function () {
+    AddmodalDetail.style.display = "none";
+  });
+//modaluserbutton.addEventListener("click", function (userID) {});
+var selectedValueFrom = document.getElementById("currencyFrom");
+var selectedValueTO = document.getElementById("currencyTO");
 
 //End offer Add post//-----------------------------------------------
 
@@ -261,14 +307,3 @@ calculateBtn.addEventListener("click", function () {
 
 //Exchange calculator  end------------------------------------------------------------------
 //homepage welcome
-
-var Greeting = document.getElementsByName("Greeting");
-Greeting.innerHTML = "hello";
-// function checkcookie() {
-//   if (document.cookie != " ") {
-//     //console.log(document.cookie);
-//     Greeting.innerHTML = "hello";
-//   }
-// }
-// checkcookie();
-//end hompepage

@@ -1,0 +1,22 @@
+modules:
+express
+body-parser
+path
+pug
+cookie-parser
+bcrypt
+fs
+mysql2
+node
+nodemon
+
+:Generate DB
+:create tabels
+"/CreatTables"
+:create Data
+"/CreatData"
+:drop all tabels
+"/dropalltables"
+
+
+
